@@ -59,10 +59,10 @@ defmodule Surface.Components.Form.ErrorTag do
   import Phoenix.HTML.Form, only: [input_name: 2]
 
   @doc "An identifier for the form"
-  prop form, :form, from_context: {Surface.Components.Form, :form}
+  prop(form, :form, from_context: {Surface.Components.Form, :form})
 
   @doc "An identifier for the associated field"
-  prop field, :any, from_context: {Surface.Components.Form.Field, :field}
+  prop(field, :any, from_context: {Surface.Components.Form.Field, :field})
 
   @doc """
   Classes to apply to each error tag <span>.
@@ -77,7 +77,7 @@ defmodule Surface.Components.Form.ErrorTag do
 
   However, the prop overrides the config value if provided.
   """
-  prop class, :css_class
+  prop(class, :css_class)
 
   @doc """
   A function that takes one argument `{msg, opts}` and returns
@@ -92,7 +92,7 @@ defmodule Surface.Components.Form.ErrorTag do
   ]
   ```
   """
-  prop translator, :fun
+  prop(translator, :fun)
 
   @doc """
   If you changed the default ID on the input, provide it here.
@@ -100,7 +100,7 @@ defmodule Surface.Components.Form.ErrorTag do
   with an input of the same name. LiveView will exhibit buggy behavior
   without assigning separate id's to each.)
   """
-  prop feedback_for, :string
+  prop(feedback_for, :string)
 
   def render(assigns) do
     translate_error = assigns.translator || translator_from_config() || (&translate_error/1)

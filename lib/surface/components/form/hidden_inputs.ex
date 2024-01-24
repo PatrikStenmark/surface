@@ -7,7 +7,7 @@ defmodule Surface.Components.Form.HiddenInputs do
 
   use Surface.Component
 
-  import Phoenix.HTML.Form
+  import PhoenixHTMLHelpers.Form, only: [hidden_inputs_for: 1]
 
   @doc """
   The form.
